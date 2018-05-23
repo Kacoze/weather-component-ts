@@ -2,9 +2,7 @@ import * as React from 'react';
 import CityWeather from './City';
 import './Weather.css';
 
-const cities = ['Lodz', 'Warszawa', 'Berlin', 'New York', 'Londyn'];
-
-class Weather extends React.Component {
+class Weather extends React.Component<{ cities: string[] }> {
   public state = { randomCities: [] };
   public citiesInterval: any;
   public getRandom(arr: string[], n: number) {
@@ -22,8 +20,8 @@ class Weather extends React.Component {
     this.setState({ randomCities });
   }
   public componentDidMount() {
-    this.getRandom(cities, 3);
-    this.citiesInterval = setInterval(() => this.getRandom(cities, 3), 10000);
+    this.getRandom(this.props.cities, 3);
+    this.citiesInterval = setInterval(() => this.getRandom(this.props.cities, 3), 10000);
   }
   public componentWillUnmount() {
     clearInterval(this.citiesInterval);
