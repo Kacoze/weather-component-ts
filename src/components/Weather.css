@@ -1,0 +1,7 @@
+.weatherComponent__Container {
+  max-width: 300px;
+}
+
+.weatherComponent__City {
+  cursor: pointer;
+}
